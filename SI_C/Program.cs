@@ -69,7 +69,7 @@ namespace SI_C
                                                     string nmr = Console.ReadLine();
                                                     try
                                                     {
-                                                        pr.insert(nmtk, idtk, kcm, jl, nmr, conn);
+                                                        pr.Create(nmtk, idtk, kcm, jl, nmr, conn);
                                                         conn.Close();
                                                     }
                                                     catch
@@ -78,6 +78,17 @@ namespace SI_C
                                                         Console.WriteLine(" Tekan enter untuk melanjutkan ");
                                                         Console.ReadLine();
                                                     }
+                                                }
+                                                break;
+                                            case '2':
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("Data Frozen Food\n");
+                                                    Console.WriteLine();
+                                                    pr.Read(conn);
+                                                    conn.Close();
+                                                    Console.WriteLine("Tekan enter untuk melanjutkan");
+                                                    Console.ReadLine();
                                                 }
                                                 break;
                                         }
