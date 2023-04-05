@@ -56,8 +56,30 @@ namespace SI_C
                                             case '1':
                                                 {
                                                     Console.Clear();
-
+                                                    Console.WriteLine("Tambahkan data ke database");
+                                                    Console.Write("Masukkan nama toko:  ");
+                                                    string nmtk = Console.ReadLine();
+                                                    Console.Write("Masukkan id toko: ");
+                                                    string idtk = Console.ReadLine();
+                                                    Console.Write("Masukkan kecamatan :  ");
+                                                    string kcm  = Console.ReadLine();
+                                                    Console.Write("Masukkan jalan :  ");
+                                                    string jl = Console.ReadLine();
+                                                    Console.Write("Masukkan nomor :  ");
+                                                    string nmr = Console.ReadLine();
+                                                    try
+                                                    {
+                                                        pr.insert(nmtk, idtk, kcm, jl, nmr, conn);
+                                                        conn.Close();
+                                                    }
+                                                    catch
+                                                    {
+                                                        Console.WriteLine("\nAnda tidak memiliki akses untuk menambah data");
+                                                        Console.WriteLine(" Tekan enter untuk melanjutkan ");
+                                                        Console.ReadLine();
+                                                    }
                                                 }
+                                                break;
                                         }
 
                                     }
