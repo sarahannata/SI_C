@@ -129,19 +129,38 @@ namespace SI_C
                                                     deleteCmd.ExecuteNonQuery();
                                                 }
                                                 break;
+                                            case '5':
+                                                conn.Close();
+                                                return;
+                                            default:
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("Invalid Option");
+                                                }
+                                                break;
                                         }
-
+                                    }
+                                    catch
+                                    {
+                                        Console.WriteLine("\nCheck for the value entered. ");
                                     }
                                 }
                             }
+                        default:
+                            {
+                                Console.WriteLine("\nInvalid Option");
+                            }
+                            break;
                     }
                 }
+                catch
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Tidak Dapat Mengakses Database Menggunakan User Tersebut\n");
+                    Console.ResetColor();
+                }
             }
-            
         }
-        public void Create(string nmtk, string idtk, string kcm, string jl, string nmr, SqlConnection conn);
-        {
-
-
     }
 }
