@@ -12,8 +12,8 @@ namespace SI_C
     {
         static void Main(string[] args)
         {
-            Program pr=new Program();
-            while(true)
+            Program pr = new Program();
+            while (true)
             {
                 try
                 {
@@ -62,7 +62,7 @@ namespace SI_C
                                                     Console.Write("Masukkan id toko: ");
                                                     string idtk = Console.ReadLine();
                                                     Console.Write("Masukkan kecamatan :  ");
-                                                    string kcm  = Console.ReadLine();
+                                                    string kcm = Console.ReadLine();
                                                     Console.Write("Masukkan jalan :  ");
                                                     string jl = Console.ReadLine();
                                                     Console.Write("Masukkan nomor :  ");
@@ -91,6 +91,33 @@ namespace SI_C
                                                     Console.ReadLine();
                                                 }
                                                 break;
+                                            case '3':
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("\nUpdate data di database");
+                                                    Console.Write("Masukkan table data yang akan diubah: ");
+                                                    int id = int.Parse(Console.ReadLine());
+                                                    Console.Write("Masukkan Nama Toko baru: ");
+                                                    string nmtk = Console.ReadLine();
+                                                    Console.Write("Masukkan Id Toko baru: ");
+                                                    string idtk = Console.ReadLine();
+                                                    Console.Write("Masukkan Nama Kecamatan Toko baru: ");
+                                                    string kcm = Console.ReadLine();
+                                                    Console.Write("Masukkan Nama Jalan Toko baru: ");
+                                                    string jl = Console.ReadLine();
+                                                    Console.Write("Masukkan Nomor Toko baru: ");
+                                                    string nmr = Console.ReadLine();
+                                                    SqlCommand updateCmd = new SqlCommand("UPDATE Tokko SET nama toko baru = @nama_toko, id toko baru = @id_toko,kecamatan baru = @kecamatan,jalan baru = @jalan, nomor baru= @nomor WHERE id = @id_toko", conn);
+                                                    updateCmd.Parameters.AddWithValue("@nama_toko_baru", nmtk);
+                                                    updateCmd.Parameters.AddWithValue("@id_toko_baru", idtk);
+                                                    updateCmd.Parameters.AddWithValue("@kecamatan_toko_baru", kcm);
+                                                    updateCmd.Parameters.AddWithValue("@jalan_toko_baru", jl);
+                                                    updateCmd.Parameters.AddWithValue("@nomor_toko_baru", nmr);
+                                                    updateCmd.Parameters.AddWithValue("@id", idtk);
+                                                    updateCmd.ExecuteNonQuery();
+
+                                                }
+                                                break;
                                         }
 
                                     }
@@ -99,6 +126,11 @@ namespace SI_C
                     }
                 }
             }
+            
         }
+        public void Create(string nmtk, string idtk, string kcm, string jl, string nmr, SqlConnection conn);
+        {
+
+
     }
 }
