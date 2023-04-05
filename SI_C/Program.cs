@@ -47,6 +47,18 @@ namespace SI_C
                                         Console.WriteLine(" 1. Create data ");
                                         Console.WriteLine(" 2. Read Data ");
                                         Console.WriteLine(" 3. Update Data ");
+                                        Console.WriteLine(" 4. Delete Data ");
+                                        Console.WriteLine(" 5. Keluar ");
+                                        Console.Write("\nEnter your choice (1-5):");
+                                        char ch = Convert.ToChar(Console.ReadLine());
+                                        switch (ch)
+                                        {
+                                            case '1':
+                                                {
+                                                    Console.Clear();
+
+                                                }
+                                        }
 
                                     }
                                 }
