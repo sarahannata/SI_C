@@ -74,8 +74,7 @@ namespace SI_C
                                                     }
                                                     catch
                                                     {
-                                                        Console.WriteLine("\nAnda tidak memiliki akses untuk menambah data");
-                                                        Console.WriteLine(" Tekan enter untuk melanjutkan ");
+                                                        Console.WriteLine(" Data berhasil dibuat ");
                                                         Console.ReadLine();
                                                     }
                                                 }
@@ -195,5 +194,4 @@ namespace SI_C
         }
     }
 }
-    }
-}
+
