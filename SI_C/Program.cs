@@ -118,6 +118,17 @@ namespace SI_C
 
                                                 }
                                                 break;
+                                            case '4':
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("\nHapus data dari database");
+                                                    Console.Write("Masukkan ID toko yang akan dihapus: ");
+                                                    string idtk = Console.ReadLine();
+                                                    SqlCommand deleteCmd = new SqlCommand("DELETE FROM Tokko WHERE id = @id_toko", conn);
+                                                    deleteCmd.Parameters.AddWithValue("@id", idtk);
+                                                    deleteCmd.ExecuteNonQuery();
+                                                }
+                                                break;
                                         }
 
                                     }
