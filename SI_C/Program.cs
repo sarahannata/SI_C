@@ -162,5 +162,38 @@ namespace SI_C
                 }
             }
         }
+        public void Read(SqlConnection con)
+        {
+            SqlCommand cmd = new SqlCommand("Select * From Tokko", con);
+            SqlDataReader r = cmd.ExecuteReader();
+            while (r.Read())
+            {
+                for (int i = 0; i < r.FieldCount; i++)
+                {
+                    Console.WriteLine(r.GetValue(i));
+                }
+                Console.WriteLine();
+            }
+            r.Close();
+        }
+        public void Create(string nmtk, string idtk, string kcm, string jl, string nmr,
+            SqlConnection con)
+        {
+            string str;
+            str = "insert into proditi.MAHASISWA (NIM, NamaMhs, AlamatMhs ,Sex, PhoneMhs)"
+                + " values (@nim, @nma, @alamat, @JK, @Phn)";
+            SqlCommand cmd = new SqlCommand(str, con);
+            cmd.CommandType = CommandType.Text;
+
+            cmd.Parameters.Add(new SqlParameter("Nama Toko", nmtk));
+            cmd.Parameters.Add(new SqlParameter("id toko", idtk));
+            cmd.Parameters.Add(new SqlParameter("kecamatan", kcm));
+            cmd.Parameters.Add(new SqlParameter("jalan", jl));
+            cmd.Parameters.Add(new SqlParameter("Nomor", nmr));
+            cmd.ExecuteNonQuery();
+            Console.WriteLine("Data Berhasil Ditambahkan");
+        }
+    }
+}
     }
 }
